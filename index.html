@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shreyas Kulkarni Portfolio</title>
+<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -159,6 +160,19 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
 .insights.row3{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:820px){.insights.row3{grid-template-columns:minmax(0,1fr)}.frame16{aspect-ratio:3/4}.frame16:has(.shot){aspect-ratio:16/10}}
 @media(prefers-reduced-motion:reduce){.pill i{animation:none}}
+.flow{list-style:none;margin:34px 0 0;padding:28px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;position:relative}
+.flow::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--g),var(--b),var(--o),var(--p),var(--g))}
+.flow li{position:relative;background:#f6f7f9;border-radius:18px;padding:22px 18px 20px;border-top:5px solid var(--c);transition:transform .3s}
+.flow li:hover{transform:translateY(-6px)}
+.flow li::before{content:"";position:absolute;top:-41px;left:18px;width:22px;height:22px;border-radius:50%;background:#fff;border:5px solid var(--c)}
+.flow b{display:block;font-size:20px;margin-bottom:6px}
+.flow span{display:block;font-size:15.5px;color:var(--soft);line-height:1.5}
+@media(max-width:1000px){.flow{grid-template-columns:repeat(2,minmax(0,1fr));padding-top:0}.flow::before,.flow li::before{display:none}}
+@media(max-width:560px){.flow{grid-template-columns:minmax(0,1fr)}}
+.tab .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;transition:opacity .5s}
+.tab tableau-viz{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity .6s}
+.tab tableau-viz iframe{width:100%!important;height:100%!important;border:0}
+.tab.ok tableau-viz{opacity:1}.tab.ok .ph{opacity:0;pointer-events:none}
 </style>
 </head>
 <body>
@@ -245,6 +259,22 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
  </div>
 </section>
 
+<section class="stage" id="process" data-name="How I work" data-c="#3779e3">
+ <div class="wrap">
+  <div class="num rv">How I work</div>
+  <h2 class="rv" style="--i:1">Agile, sprint by sprint, from question to decision.</h2>
+  <p class="lead rv" style="--i:2;margin-top:20px">I work in two-week sprints with stakeholders in the loop, tracking work in Jira and documenting in Confluence, so every dashboard ships tested, explained and easy to maintain.</p>
+  <ol class="flow">
+   <li class="rv" style="--i:3;--c:var(--g)"><b>Discover</b><span>Requirements workshops with stakeholders. Agree the question, KPIs and definition of done.</span></li>
+   <li class="rv" style="--i:4;--c:var(--b)"><b>Prepare</b><span>SQL and Python to extract, clean and model the data, with validation checks at every source.</span></li>
+   <li class="rv" style="--i:5;--c:var(--o)"><b>Build</b><span>Power BI or Tableau dashboards and automated reports, reviewed in sprint demos.</span></li>
+   <li class="rv" style="--i:6;--c:var(--p)"><b>Validate &amp; ship</b><span>Reconcile numbers with the business, user testing, then documentation in Confluence.</span></li>
+   <li class="rv" style="--i:7;--c:var(--g)"><b>Iterate</b><span>Monitor usage and data quality, gather feedback and plan the next sprint in Jira.</span></li>
+  </ol>
+  <ul class="chips rv" style="--i:8;margin-top:26px"><li style="--c:var(--bt)">Agile / Scrum</li><li style="--c:var(--bt)">Jira</li><li style="--c:var(--bt)">Confluence</li><li style="--c:var(--gt)">Requirements gathering</li><li style="--c:var(--ot)">Data validation</li><li style="--c:var(--pt)">Stakeholder demos</li></ul>
+ </div>
+</section>
+
 <section class="stage" id="skills" data-name="Skills" data-c="#449864">
  <div class="wrap split flip">
   <div>
@@ -328,7 +358,7 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
   <div class="caselive">
    <div class="live rv" style="--i:2;--t:var(--ot)">
     <div class="livehead"><span class="pill"><i></i>Live dashboard · filter, hover and click</span><a href="https://public.tableau.com/views/EcomAnalytics/Dashboard1?:language=en-US&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">Open on Tableau Public ↗</a></div>
-    <div class="frame16"><iframe loading="lazy" src="https://public.tableau.com/views/EcomAnalytics/Dashboard1?:showVizHome=no&amp;:embed=true&amp;:tabs=no&amp;:toolbar=bottom" title="Website insights Tableau dashboard" allowfullscreen></iframe></div>
+    <div class="frame16 tab"><img class="ph" src="img/ga.webp" alt=""><tableau-viz src="https://public.tableau.com/views/EcomAnalytics/Dashboard1" toolbar="bottom" hide-tabs width="100%" height="100%"></tableau-viz></div>
    </div>
    <p class="rv" style="--i:3">Customer behaviour across sales, visitor segments and acquisition channels, turning Google Analytics data into clear marketing and retention calls.</p>
    <ul class="insights row3" style="--c:var(--o)">
@@ -347,7 +377,7 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
   <div class="caselive">
    <div class="live rv" style="--i:2;--t:var(--pt)">
     <div class="livehead"><span class="pill"><i></i>Live dashboard · filter, hover and click</span><a href="https://public.tableau.com/views/Sales_17458457133980/SalesDashboard?:language=en-US&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">Open on Tableau Public ↗</a></div>
-    <div class="frame16"><iframe loading="lazy" src="https://public.tableau.com/views/Sales_17458457133980/SalesDashboard?:showVizHome=no&amp;:embed=true&amp;:tabs=no&amp;:toolbar=bottom" title="Retail drink sales Tableau dashboard" allowfullscreen></iframe></div>
+    <div class="frame16 tab"><img class="ph" src="img/retail.webp" alt=""><tableau-viz src="https://public.tableau.com/views/Sales_17458457133980/SalesDashboard" toolbar="bottom" hide-tabs width="100%" height="100%"></tableau-viz></div>
    </div>
    <p class="rv" style="--i:3">Retail drink sales across vendors, categories and seasons, showing product performance and the best timing for campaigns.</p>
    <ul class="insights row3" style="--c:var(--p)">
@@ -468,6 +498,13 @@ const close=()=>lb.classList.remove('on');
 document.querySelectorAll('.shot').forEach(b=>b.addEventListener('click',()=>{lbImg.src=b.dataset.full;lbImg.alt=b.querySelector('img').alt;lb.classList.add('on');lb.querySelector('button').focus()}));
 lb.addEventListener('click',close);
 }
+</script>
+<script>
+document.querySelectorAll('tableau-viz').forEach(v=>{
+ const box=v.parentElement;
+ v.addEventListener('firstinteractive',()=>box.classList.add('ok'));
+ v.addEventListener('vizloaderror',()=>box.classList.add('err'));
+});
 </script>
 </body>
 </html>
